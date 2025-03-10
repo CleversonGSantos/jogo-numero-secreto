@@ -2,7 +2,6 @@ let listaNumerosSortiados = [];
 let numeroLimite = 100;
 let numeroAleatorio = gerarNumeroAleatorio();
 let tentativas = 1;
-console.log('numero: ' + numeroAleatorio);
 
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
@@ -14,7 +13,6 @@ tituloInicioJogo();
 
 function verificarChute() {
     let valorChute = document.querySelector('input').value;
-    console.log(valorChute == numeroAleatorio);
 
     if (valorChute == numeroAleatorio) {
         exibirTextoNaTela('h1', 'Acertou!');
@@ -42,7 +40,6 @@ function reiniciarJogo() {
     tituloInicioJogo();
     tentativas = 1;
     numeroAleatorio = gerarNumeroAleatorio();
-    console.log(`numero secreto: ${numeroAleatorio}`)
     limpaCampo();
     document.getElementById('reiniciar').setAttribute('disabled', 'true');
     document.getElementById('btChute').removeAttribute('disabled');
@@ -63,6 +60,5 @@ function gerarNumeroAleatorio() {
     } while (listaNumerosSortiados.includes(numeroSortiado));
     
     listaNumerosSortiados.push(numeroSortiado);
-    console.log(listaNumerosSortiados);
     return numeroSortiado;
 }
